@@ -8,7 +8,31 @@
 </head>
 <body>
     <h1>Build Your Portland Trail Blazers Team</h1>
-    <div id="app"></div>
+    <div id="app">
+        <header id="controls">
+            <section>
+                <h2>Salary Cap</h2>
+            </section>
+            <section>
+                <h2>Filters</h2>
+            </section>
+        </header>
+        <main>
+            <section id="all-players">
+                <h2>All-Time Blazers Players</h2>
+            </section>
+            <section id="my-team">
+                <h2>My Team</h2>
+                <div id="team-players">
+                </div>
+                <div id="salary-totals">
+                </div>
+                <div id="salary-chart-container">
+                    <canvas id="salaryChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
