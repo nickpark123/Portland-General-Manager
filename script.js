@@ -1,6 +1,7 @@
 const SALARY_CAP = 154647000;
 let totalSalary = 0;
 let selectedPlayers = [];
+let salaryChart = null;
 
 function formatSalary(salary) {
     return '$' + salary.toLocaleString();
@@ -47,6 +48,34 @@ function renderAllPlayers(playersToRender) {
     container.appendChild(list);
 }
 
+function updateSalaryChart() {
+    const labels = [];
+    const data = [];
+    
+    for (let i = 0; i < selectedPlayers.length; i++) {
+        labels.push(selectedPlayers[i].name);
+        data.push(selectedPlayers[i].salary);
+    }
+    
+    const ctx = document.getElementById('salaryChart');
+    
+    if (salaryChart === null) {
+        salaryChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data
+                }]
+            }
+        });
+    } else {
+        salaryChart.data.labels = labels;
+        salaryChart.data.datasets[0].data = data;
+        salaryChart.update();
+    }
+}
+
 function renderMyTeam() {
     const teamBox = document.getElementById('team-players');
     teamBox.innerHTML = '';
@@ -61,6 +90,8 @@ function renderMyTeam() {
     const totalsBox = document.getElementById('salary-totals');
     const remaining = SALARY_CAP - totalSalary;
     totalsBox.innerHTML = '<p>Total Salary: ' + formatSalary(totalSalary) + '</p><p>Remaining Cap: ' + formatSalary(remaining) + '</p>';
+    
+    updateSalaryChart();
 }
 
 window.onload = function() {
