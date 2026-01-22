@@ -81,13 +81,19 @@ function updateSalaryChart() {
 
 function renderMyTeam() {
     const teamBox = document.getElementById('team-players');
-    teamBox.innerHTML = '';
     
-    for (let i = 0; i < selectedPlayers.length; i++) {
-        const p = selectedPlayers[i];
-        const row = document.createElement('div');
-        row.textContent = p.name + ' (' + p.position + ') - ' + formatSalary(p.salary);
-        teamBox.appendChild(row);
+    if (selectedPlayers.length === 0) {
+        teamBox.innerHTML = '<p>No players added yet.</p>';
+    } else {
+        let playerList = '';
+        for (let i = 0; i < selectedPlayers.length; i++) {
+            const p = selectedPlayers[i];
+            if (i > 0) {
+                playerList += ', ';
+            }
+            playerList += p.name + ' (' + p.position + ') - ' + formatSalary(p.salary);
+        }
+        teamBox.innerHTML = '<p>' + playerList + '</p>';
     }
     
     const totalsBox = document.getElementById('salary-totals');
@@ -98,6 +104,7 @@ function renderMyTeam() {
 }
 
 window.onload = function() {
+    document.getElementById('salary-cap-display').textContent = 'Cap: ' + formatSalary(SALARY_CAP);
     renderAllPlayers(players);
     renderMyTeam();
 };
