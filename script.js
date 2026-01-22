@@ -51,6 +51,7 @@ function renderAllPlayers(playersToRender) {
 function updateSalaryChart() {
     const labels = [];
     const data = [];
+    const colors = ['#E03A3E', '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B739', '#E74C3C', '#3498DB', '#2ECC71', '#9B59B6', '#1ABC9C'];
     
     for (let i = 0; i < selectedPlayers.length; i++) {
         labels.push(selectedPlayers[i].name);
@@ -65,13 +66,15 @@ function updateSalaryChart() {
             data: {
                 labels: labels,
                 datasets: [{
-                    data: data
+                    data: data,
+                    backgroundColor: colors.slice(0, selectedPlayers.length)
                 }]
             }
         });
     } else {
         salaryChart.data.labels = labels;
         salaryChart.data.datasets[0].data = data;
+        salaryChart.data.datasets[0].backgroundColor = colors.slice(0, selectedPlayers.length);
         salaryChart.update();
     }
 }
