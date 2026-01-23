@@ -1,12 +1,16 @@
 * {
     margin: 0;
     padding: 0;
+    
     box-sizing: border-box;
 }
 
 body {
+
+
     font-family: 'Georgia', 'Times New Roman', serif;
-    line-height: 1.6;
+    line-height: 1.8;
+
     padding: 20px;
     background-color: #0d0d0d;
     color: #ffffff;
@@ -14,9 +18,9 @@ body {
 
 h1 {
     text-align: center;
-    margin-bottom: 30px;
-    color: #E03A3E;
-}
+    margin-bottom: 35px;
+
+    color: #E03A3E; }
 
 h2 {
     color: #E03A3E;
@@ -25,9 +29,8 @@ h2 {
 #app {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #1a1a1a;
-}
+    padding: 22px;
+    background-color: #1a1a1a; }
 
 #controls {
     margin-bottom: 30px;
@@ -50,6 +53,10 @@ main {
     padding: 20px;
 }
 
+.player-card {
+    margin-bottom: 20px;
+}
+
 #my-team {
     flex: 1;
     background-color: #2a2a2a;
@@ -65,13 +72,19 @@ button {
     font-size: 14px;
 }
 
+
+
 button:hover {
     background-color: #c02e32;
 }
 
+
+
 button:active {
     background-color: #a02528;
 }
+
+
 
 input, select {
     background-color: #1a1a1a;
@@ -81,10 +94,13 @@ input, select {
     margin-right: 10px;
 }
 
+
 input:focus, select:focus {
     outline: 2px solid #E03A3E;
     outline-offset: 2px;
 }
+
+
 
 @media (max-width: 768px) {
     main {

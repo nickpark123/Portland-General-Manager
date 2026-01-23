@@ -5,6 +5,7 @@ let salaryChart = null;
 
 function formatSalary(salary) {
     return '$' + salary.toLocaleString();
+
 }
 
 function renderAllPlayers(playersToRender) {
@@ -76,6 +77,7 @@ function updateSalaryChart() {
         salaryChart.data.datasets[0].data = data;
         salaryChart.data.datasets[0].backgroundColor = colors.slice(0, selectedPlayers.length);
         salaryChart.update();
+
     }
 }
 
